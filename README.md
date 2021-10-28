@@ -3,6 +3,13 @@ A simple tool for generating orm js 'sql' access call functions for mysql dbs.
 
 Reads the db tables, and creates js for accessing each table, jsdoc for the table row vo, with optional support for build simple fast "left join" queries.
 
+# Howto Install
+
+```bash
+npm install eze-simple-sql -g
+```
+
+
 # Howto Run
 
 ```bash
