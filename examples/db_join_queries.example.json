@@ -1,0 +1,14 @@
+[
+  {
+    "table": "object",
+    "joinColumn": "column_in_object_with_id_of_extra_info",
+    "joinTable": "extra_info",
+    "postFix": "_with_extra"
+  },
+  {
+    "table": "shirts",
+    "joinColumn": "colour_id",
+    "joinTable": "colours",
+    "postFix": "_with_colour"
+  }
+]
