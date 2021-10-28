@@ -1,7 +1,7 @@
 # eze-simple-sql
-A simple tool for generating orm js 'sql' access call functions from rds database instance
+A simple tool for generating orm js 'sql' access call functions for mysql dbs.
 
-Also generates jsdoc for the resultant VOs
+Reads the db tables, and creates js for accessing each table, jsdoc for the table row vo, with optional support for build simple fast "left join" queries.
 
 # Howto Run
 
@@ -9,9 +9,9 @@ Also generates jsdoc for the resultant VOs
 eze-simple-sql --rds -r eu-west-2 -h xxx.xxx.eu-west-2.rds.amazonaws.com -p 3306 -d test -u admin -c 'db-join-queries.json' -o 'db-simple-queries.js'
 ```
 
-Will generate simple javascript that only requires lodash and mysql libraries to perform orm style queries.
+Generates a lightweight javascript file that only requires lodash and mysql libraries to perform orm style queries.
 
-These can be copy and paste individually, or a package to produce minimalistic javascript.
+These access functions are self-contained and can be copy and pasted individually, or as a complete package to produce minimalistic javascript for size sensitive environments like aws lambda functions or embedded systems.
 
 # CLI help
 

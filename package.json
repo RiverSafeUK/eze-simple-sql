@@ -1,6 +1,6 @@
 {
   "name": "eze-simple-sql",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple js access functions generator for mysql dbs",
   "main": "lib/cli.js",
   "author": "Eze Riversafe 2021",
