@@ -108,7 +108,7 @@ function readCodebasesByColumnWithScan (columnValues, orderColumns=null, rowCoun
     orderColumns = orderColumns || [{'id': 'ASC'}]
     let orderColumnsKV = _.map(orderColumns, (columnDef) => _.first(_.map(columnDef, (value, key) => ({ key, value }))))
 
-    let table = \\"\\\\\`codebase\\\\\`\\"
+    let table = \\"\`codebase\`\\"
     return {
         query: \`SELECT \\\\\`codebase\\\\\`.id as id,\\\\\`codebase\\\\\`.group_id as groupId,\\\\\`codebase\\\\\`.latest_scan_id as latestScanId,\\\\\`codebase\\\\\`.name as name,\\\\\`codebase\\\\\`.description as description,\\\\\`codebase\\\\\`.repo_url as repoUrl,\\\\\`codebase\\\\\`.last_updated as lastUpdated,\\\\\`scan\\\\\`.codebasebranch_id as codebasebranchId,\\\\\`scan\\\\\`.date as date,\\\\\`scan\\\\\`.duration as duration,\\\\\`scan\\\\\`.report_s3_key as reportS3Key,\\\\\`scan\\\\\`.status as status,\\\\\`scan\\\\\`.sca_state as scaState,\\\\\`scan\\\\\`.sast_state as sastState,\\\\\`scan\\\\\`.secrets_state as secretsState,\\\\\`scan\\\\\`.sbom_state as sbomState,\\\\\`scan\\\\\`.critical as critical,\\\\\`scan\\\\\`.high as high,\\\\\`scan\\\\\`.medium as medium,\\\\\`scan\\\\\`.na as na,\\\\\`scan\\\\\`.none as none,\\\\\`scan\\\\\`.total as total FROM \\\\\`codebase\\\\\`
 LEFT JOIN \\\\\`scan\\\\\`
