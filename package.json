@@ -1,6 +1,6 @@
 {
   "name": "eze-simple-sql",
-  "version": "0.1.4",
+  "version": "0.14.0",
   "description": "Simple js access functions generator for mysql dbs",
   "main": "lib/cli.js",
   "author": "Eze Riversafe 2021",
@@ -22,15 +22,16 @@
   "homepage": "https://github.com/RiverSafeUK/eze-simple-sql",
   "man": "./man/eze-simple-sql.1",
   "dependencies": {
-    "aws-sdk": "^2.996.0",
+    "aws-sdk": "^2.1068.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
-    "mysql2": "^2.3.0",
-    "yargs": "^17.2.1"
+    "mysql2": "^2.3.3",
+    "yargs": "^17.3.1"
   },
   "devDependencies": {
     "jest": "^27.2.3",
+    "jest-junit": "^13.0.0",
     "standard": "^16.0.3"
   },
   "standard": {
@@ -44,6 +45,26 @@
     "build-man": "node bin/eze-simple-sql > man/eze-simple-sql.1",
     "lint": "node node_modules/standard/bin/cmd.js --fix",
     "test": "node node_modules/jest/bin/jest",
-    "test-update": "node node_modules/jest/bin/jest --updateSnapshot"
+    "test-update": "node node_modules/jest/bin/jest --updateSnapshot",
+    "test:ci": "node node_modules/jest/bin/jest --coverage --watchAll=false --testResultsProcessor ./node_modules/jest-junit --coverageDirectory=reports/coverage"
+  },
+  "jest-junit": {
+    "outputName": "reports/junit.xml"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "cobertura"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 60,
+        "statements": 60,
+        "functions": 60,
+        "branches": 40
+      }
+    }
   }
 }

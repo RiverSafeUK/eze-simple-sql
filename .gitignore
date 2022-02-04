@@ -7,6 +7,11 @@
 # Ignore local .ezerc report files
 eze_report.json
 eze_junit_report.xml
+eze_report.sarif
+eze*_bom.json
+spdx-license-list-data.json
+reports/
+.eze
 
 # IDE: ignore IDE config files
 .idea

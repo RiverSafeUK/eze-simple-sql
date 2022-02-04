@@ -1,0 +1,88 @@
+
+# auto generated .ezerc.toml
+# recreate with "docker run -t --rm -v DIRECTORY:/data riversafe/eze-cli housekeeping create-local-config'"
+
+# ===================================
+# GLOBAL CONFIG
+# ===================================
+[global]
+# LICENSE_CHECK, available modes:
+# - PROPRIETARY (default) : for commercial projects, check for non-commercial, strong-copyleft, and source-available licenses
+# - PERMISSIVE : for permissive open source projects (aka MIT, LGPL), check for strong-copyleft licenses
+# - OPENSOURCE : for copyleft open source projects (aka GPL), check for non-OSI or FsfLibre certified licenses
+# - OFF : no license checks
+# All modes will also warn on "unprofessional", "deprecated", and "permissive with conditions" licenses
+LICENSE_CHECK = "PROPRIETARY"
+# LICENSE_ALLOWLIST, list of licenses to exempt from license checks
+LICENSE_ALLOWLIST = []
+# LICENSE_DENYLIST, list of licenses to always report usage as a error
+LICENSE_DENYLIST = []
+
+# ========================================
+# TOOL CONFIG
+# ========================================
+[trufflehog]
+# Full List of Fields and Tool Help available "docker run riversafe/eze-cli tools help trufflehog"
+USE_GIT_IGNORE = true
+DISABLE_DEFAULT_IGNORES = false
+NO_ENTROPY = false
+INCLUDE_FULL_REASON = true
+EXCLUDE = []
+REPORT_FILE = ".eze/_truffleHog-report.json"
+
+[semgrep]
+# Full List of Fields and Tool Help available "docker run riversafe/eze-cli tools help semgrep"
+USE_GIT_IGNORE = true
+DISABLE_DEFAULT_IGNORES = false
+PRINT_TIMING_INFO = false
+WINDOWS_DOCKER_WORKAROUND = false
+EXCLUDE = []
+REPORT_FILE = ".eze/_semgrep-report.json"
+
+[node-npmaudit]
+# Full List of Fields and Tool Help available "docker run riversafe/eze-cli tools help node-npmaudit"
+REPORT_FILE = ".eze/_node-npmaudit-report.json"
+
+[node-npmoutdated]
+# Full List of Fields and Tool Help available "docker run riversafe/eze-cli tools help node-npmoutdated"
+REPORT_FILE = ".eze/_node-npmoutdated-report.json"
+
+[node-cyclonedx]
+# Full List of Fields and Tool Help available "docker run riversafe/eze-cli tools help node-cyclonedx"
+REPORT_FILE = ".eze/_node-cyclonedx-bom.json"
+
+
+# ========================================
+# REPORT CONFIG
+# ========================================
+[console]
+# Full List of Fields and Reporter Help available "docker run riversafe/eze-cli reporters help console"
+PRINT_SUMMARY_ONLY = false
+PRINT_IGNORED = false
+
+[bom]
+# Full List of Fields and Reporter Help available "docker run riversafe/eze-cli reporters help bom"
+
+
+[json]
+# Full List of Fields and Reporter Help available "docker run riversafe/eze-cli reporters help json"
+
+
+[sarif]
+# Full List of Fields and Reporter Help available "docker run riversafe/eze-cli reporters help sarif"
+
+
+[eze]
+# Full List of Fields and Reporter Help available "docker run riversafe/eze-cli reporters help eze"
+CONSOLE_ENDPOINT = "https://aio7y6esb7.execute-api.eu-west-2.amazonaws.com/development"
+
+
+# ========================================
+# SCAN CONFIG
+# ========================================
+[scan]
+tools = ["trufflehog","semgrep","node-npmaudit","node-npmoutdated","node-cyclonedx"]
+reporters = ["console","bom","json","sarif"]
+
+[scan.ci]
+reporters = ["console", "bom", "json", "sarif", "eze"]
