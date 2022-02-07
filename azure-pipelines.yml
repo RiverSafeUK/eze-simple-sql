@@ -11,10 +11,11 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-    strategy:
-      matrix:
-        node_14_x:
-          node_version: 14.x
+
+strategy:
+  matrix:
+    node_14_x:
+      node_version: 14.x
 
 steps:
 - task: NodeTool@0
