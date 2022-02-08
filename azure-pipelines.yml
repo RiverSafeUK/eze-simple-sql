@@ -47,7 +47,7 @@ steps:
 
 # https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
 - script: |
-    docker pull riversafe/eze-cli:latest
+    docker pull riversafe/eze-cli:latest --quiet
     chmod o+rw .
     docker run --rm -e "EZE_APIKEY=$EZE_APIKEY" -e "BUILD_SOURCEBRANCHNAME=$BUILD_SOURCEBRANCHNAME" -e "BUILD_REPOSITORY_URI=$BUILD_REPOSITORY_URI" -e "SYSTEM_PULLREQUEST_SOURCEBRANCH=$SYSTEM_PULLREQUEST_SOURCEBRANCH" -v "$(pwd)":/data riversafe/eze-cli test -s ci
   env:
